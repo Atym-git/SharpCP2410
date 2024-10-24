@@ -13,11 +13,11 @@ namespace _2410Sharp
         static void Main(string[] args)
         {
             int[] ints = { 5, 1, 35, 6, 65, 34, 3 };
-            //Task1();
+            Task1();
 
             //Task2();
 
-            Task3(ints);
+            //Task3(ints);
 
 
 
@@ -33,16 +33,12 @@ namespace _2410Sharp
             for (int i = 0; i < size; i++)
             {
                 ints[i] = Convert.ToInt32(Console.ReadLine());
-                //Console.Write(values + " ");
             }
             foreach (int value in ints)
             {
-                Console.Write(ints[value - 1] + " ");
+                Console.Write(value + " ");
             }    
-            //foreach (int j in ints)
-            //{
-            //    Console.Write(ints[j] + " ");
-            //}
+
 
         }
         static void Task2()
@@ -63,6 +59,10 @@ namespace _2410Sharp
             Array.Sort(numbers);
             var str = string.Join(" ", numbers);
             Console.WriteLine(str);
+        }
+        static void Task4() // Task 1 with *
+        {
+
         }
 
     }
