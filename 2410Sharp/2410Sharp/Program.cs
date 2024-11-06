@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Versioning;
 using System.Text;
@@ -15,15 +16,21 @@ namespace _2410Sharp
             int[] ints = { 5, 1, 35, 6, 65, 34, 3 };
 
             int[] nums = { 3, 4, 24, 15, 165, 65, 8 };
+
             //Task1();
 
             //Task2();
 
             //Task3(ints);
-            for (int i = 0; i < ints.Length + nums.Length; i++)
-            {
-                Console.WriteLine(Task5[i](ints, nums));
-            }
+
+            //Task4();
+
+            //List<int> list = Task5(ints, nums);
+
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    Console.WriteLine(list[i]);
+            //}
 
 
         }
@@ -66,22 +73,47 @@ namespace _2410Sharp
         static void Task4() // Task 1 with *
         {
 
+            double doubleNum;
+            double sum = 0;
+
+            Console.WriteLine("Введите любое число, либо sum для подсчета всех введенных вами чисел, либо exit для выхода из программы");
+            while (true)
+            {
+                string input = Console.ReadLine();
+                bool isDouble = Double.TryParse(input, out doubleNum);
+                if (input == "exit")
+                {
+                    break;
+                }
+                else if (input == "sum")
+                {
+                    Console.WriteLine(sum);
+                }
+                else if (isDouble)
+                {
+                    sum += doubleNum;
+                }
+                else
+                {
+                    Console.WriteLine("Неверное введенное значение, введите либо: sum, либо: exit, либо любое число");
+                }
+            }
         }
 
-        static int[] Task5(int[] nums, int[] ints) // Task 2 with *
+        static List<int> Task5(int[] nums, int[] ints) // Task 2 with *
         {
             List<int> list = new List<int>();
-            int[] result = new int[nums.Length + ints.Length];
             for (int i = 0; i < nums.Length;i++)
             {
                 list.Add (nums[i]);
             }
-            //for (int i = nums.Length; i < (ints.Length + nums.Length); i++)
-            //{
-            //    list.Add(ints[i]);
-            //}
 
-                return result;
+            for (int i = 0; i < ints.Length; i++)
+            {
+                list.Add(ints[i]);
+            }
+
+            return list;
         }
 
         static void Task6() // Task 3 with *
